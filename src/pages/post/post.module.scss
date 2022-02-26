@@ -23,20 +23,26 @@
         align-items: center;
         justify-content: space-between;
         max-width: 23rem;
+        color: var(--body);
     }
 
 }
 
 .contentBody{
 
-    line-height: 25.2px;
     text-align: justify;
+
     h1{
         margin-bottom: 2rem;
+        color: var(--heading);
+        font-size: 36px;
+        line-height: 140%;
     }
 
     p{
         font-size: 18px;
         margin-bottom: 2rem;
+        color: var(--body);
+        line-height: 140%;
     }
 }
