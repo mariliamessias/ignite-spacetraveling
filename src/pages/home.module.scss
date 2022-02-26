@@ -24,10 +24,12 @@
             color: var(--body);
             margin-right: 1rem;
             font-weight: 300;
+            margin-left: 0.75rem;
         }
 
         span{
             font-weight: 300;
+            margin-left: 0.75rem;
         }
 
         strong {
@@ -47,4 +49,15 @@
             align-items: center;
         }
     }
+}
+
+.continueReading{
+
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    margin-top: 3rem;
+    color: var(--highlight);
+    cursor: pointer;
+    
 }
