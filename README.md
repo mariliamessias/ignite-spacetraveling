@@ -10,18 +10,18 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Home:
 
 <h1 align="center">
-    <img alt="ignews" src="./src/assets/home.png" />
+    <img alt="spacetraveling" src="./src/assets/home.png" />
 </h1>
 Lista com os posts cadastrados no Fauna:
 <br>
 <h1 align="center">
-    <img alt="ignews" src="./src/assets/posts.png" />
+    <img alt="spacetraveling" src="./src/assets/posts.png" />
 </h1>
 Preview do conteúdo do post quando o usuário não está logado:
 <br>
 <br>
 <h1 align="center">
-    <img alt="ignews" src="./src/assets/preview.png" />
+    <img alt="spacetraveling" src="./src/assets/preview.png" />
 </h1>
 
 ## 🚀 Como executar
