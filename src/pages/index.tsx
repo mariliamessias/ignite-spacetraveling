@@ -23,6 +23,7 @@ interface Post {
 interface PostPagination {
   next_page: string;
   results: Post[];
+  preview: boolean;
 }
 
 interface HomeProps {
@@ -30,7 +31,7 @@ interface HomeProps {
 }
 
 export default function Home({ postsPagination }: HomeProps) {
-  const { results, next_page } = postsPagination;
+  const { results, next_page, preview } = postsPagination;
 
   const [posts, setPosts] = useState<Post[]>(results);
   const [nextPage, setNextPage] = useState(next_page);
@@ -41,7 +42,7 @@ export default function Home({ postsPagination }: HomeProps) {
     setNextPage(response.next_page);
   }
 
-  function handleDate(date: String){
+  function handleDate(date: String) {
     return format(parseISO(date), 'dd MMM yyyy', {
       locale: ptBR,
     });
@@ -70,12 +71,23 @@ export default function Home({ postsPagination }: HomeProps) {
             <a onClick={handleLoadPosts}>Carregar mais posts</a>
           </div>
         )}
+
+        {preview && (
+          <aside className={commonStyles.preview}>
+            <Link href="/api/exit-preview">
+              <a>Sair do modo Preview</a>
+            </Link>
+          </aside>
+        )}
       </main>
     </>
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({
+  preview = false,
+  previewData,
+}) => {
   const prismic = getPrismicClient();
 
   const response = await prismic.query(
@@ -83,6 +95,7 @@ export const getStaticProps: GetStaticProps = async () => {
     {
       fetch: ['publication.title', 'publication.subtitle'],
       pageSize: 1,
+      ref: previewData?.ref ?? null,
     }
   );
 
@@ -93,6 +106,7 @@ export const getStaticProps: GetStaticProps = async () => {
       postsPagination: {
         results,
         next_page: response.next_page,
+        preview,
       },
     },
     revalidate: 600,

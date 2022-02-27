@@ -3,3 +3,22 @@
     margin: 0 auto;
     padding: 0 2rem;
 }
+
+.preview{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    
+    a{
+        margin-top: 2rem;
+        background-color: var(--heading);
+        color: var(--background);
+        width: 100%;
+        height: 58px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+}
