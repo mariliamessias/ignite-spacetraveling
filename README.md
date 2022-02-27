@@ -7,21 +7,26 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🧪 Telas
 
-Home:
+Home. Nessa imagem é possível ver o conceito de paginação, onde temos uma opção "carregar mais posts" que permanecerá habilitada até que não existam mais posts a serem exibidos.
 
 <h1 align="center">
-    <img alt="ignews" src="./src/assets/home.png" />
+    <img alt="spacetraveling" src="./src/assets/home.png" />
 </h1>
-Lista com os posts cadastrados no Fauna:
+Lista com todos os posts cadastrados no prismic. Nessa tela é possível ver que o botão "carregar mais posts" não é mais exibido.
 <br>
 <h1 align="center">
-    <img alt="ignews" src="./src/assets/posts.png" />
+    <img alt="spacetraveling" src="./src/assets/home_all.png" />
 </h1>
-Preview do conteúdo do post quando o usuário não está logado:
-<br>
+Página com as informações detalhadas sobre o post selecionado na tela anterior:
 <br>
 <h1 align="center">
-    <img alt="ignews" src="./src/assets/preview.png" />
+    <img alt="spacetraveling" src="./src/assets/post.png" />
+</h1>
+
+Nessa aplicação existem testes e podemos ver que todos eles passaram, garantindo assim a integridade do que seria esperado na execução do projeto:
+<br>
+<h1 align="center">
+    <img alt="spacetraveling" src="./src/assets/tests.png" />
 </h1>
 
 ## 🚀 Como executar
