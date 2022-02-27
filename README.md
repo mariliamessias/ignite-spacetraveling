@@ -19,9 +19,14 @@ Lista com todos os posts cadastrados no prismic. Nessa tela é possível ver que
 </h1>
 Página com as informações detalhadas sobre o post selecionado na tela anterior:
 <br>
-<br>
 <h1 align="center">
     <img alt="spacetraveling" src="./src/assets/post.png" />
+</h1>
+
+Nessa aplicação existem testes e podemos ver que todos eles passaram, garantindo assim a integridade do que seria esperado na execução do projeto:
+<br>
+<h1 align="center">
+    <img alt="spacetraveling" src="./src/assets/tests.png" />
 </h1>
 
 ## 🚀 Como executar
