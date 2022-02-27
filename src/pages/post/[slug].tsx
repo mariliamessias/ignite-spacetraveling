@@ -12,6 +12,7 @@ import commonStyles from '../../styles/common.module.scss';
 import styles from './post.module.scss';
 import { RichText } from 'prismic-dom';
 import { FiUser, FiCalendar, FiClock } from 'react-icons/fi';
+import Comments from '../../components/Comments';
 
 interface Post {
   uid?: string;
@@ -86,6 +87,9 @@ export default function Post({ post, preview }: PostProps) {
             />
           </div>
         ))}
+      </div>
+      <div className={commonStyles.comment}>
+        <Comments />
       </div>
       {preview && (
         <aside className={commonStyles.preview}>
