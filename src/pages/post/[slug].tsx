@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Prismic from '@prismicio/client';
-
 import { useRouter } from 'next/router';
 import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
@@ -35,10 +34,12 @@ interface Post {
 
 interface PostProps {
   post: Post;
+  prevPost: Post;
+  nextPost: Post;
   preview: boolean;
 }
 
-export default function Post({ post, preview }: PostProps) {
+export default function Post({ post, preview, prevPost, nextPost }: PostProps) {
   const router = useRouter();
   if (router.isFallback) {
     return <div>Carregando...</div>;
@@ -46,6 +47,12 @@ export default function Post({ post, preview }: PostProps) {
 
   function handleDate(date: String) {
     return format(parseISO(date), 'dd MMM yyyy', {
+      locale: ptBR,
+    });
+  }
+
+  function handleEditedDate(date: String) {
+    return format(parseISO(date), "d MMM yyyy', às 'HH:mm", {
       locale: ptBR,
     });
   }
@@ -76,6 +83,9 @@ export default function Post({ post, preview }: PostProps) {
             <FiClock />
             <span>{readingTime} min</span>
           </section>
+          <span className={styles.editDate}>
+            *editado em {handleEditedDate(post.first_publication_date)}
+          </span>
         </div>
         {post.data.content.map(content => (
           <div className={styles.contentBody} key={content.heading}>
@@ -87,6 +97,25 @@ export default function Post({ post, preview }: PostProps) {
             />
           </div>
         ))}
+      </div>
+      <div className={styles.navigation}>
+        {prevPost && (
+          <Link href={`/post/${prevPost.uid}`}>
+            <a className={styles.prev}>
+              {prevPost.data.title}
+              <span>Post anterior</span>
+            </a>
+          </Link>
+        )}
+
+        {nextPost && (
+          <Link href={`/post/${nextPost.uid}`}>
+            <a className={styles.next}>
+              {nextPost.data.title}
+              <span>Próximo post</span>
+            </a>
+          </Link>
+        )}
       </div>
       <div className={commonStyles.comment}>
         <Comments />
@@ -125,13 +154,35 @@ export const getStaticProps = async ({
 }) => {
   const { slug } = params;
   const prismic = getPrismicClient();
-  const response = await prismic.getByUID('posts', String(slug), {
+  const actualPostResponse = await prismic.getByUID('posts', String(slug), {
     ref: previewData?.ref ?? null,
   });
-  const result = buildPosts(response);
+
+  const prevPost = (
+    await prismic.query(Prismic.predicates.at('document.type', 'posts'), {
+      pageSize: 1,
+      after: `${actualPostResponse.id}`,
+      orderings: '[document.first_publication_date desc]',
+      fetch: ['post.title'],
+    })
+  ).results[0];
+
+  const nextPost = (
+    await prismic.query(Prismic.predicates.at('document.type', 'posts'), {
+      pageSize: 1,
+      after: actualPostResponse.id,
+      orderings: '[document.first_publication_date]',
+      fetch: ['post.title'],
+    })
+  ).results[0];
+
+  const post = buildPosts(actualPostResponse);
+
   return {
     props: {
-      post: result,
+      post,
+      prevPost: prevPost ?? null,
+      nextPost: nextPost ?? null,
       revalidate: 600,
       preview,
     },

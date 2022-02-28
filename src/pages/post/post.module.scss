@@ -11,7 +11,7 @@
 
 .header{
     margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 
     h1{
         font-size: 48px;
@@ -24,8 +24,8 @@
         justify-content: space-between;
         max-width: 23rem;
         color: var(--body);
+        margin-bottom: 1rem;
     }
-
 }
 
 .contentBody{
@@ -45,4 +45,44 @@
         color: var(--body);
         line-height: 140%;
     }
+}
+
+.navigation{
+    border-top: 1px solid var(--body);
+    max-width: 1050px !important;
+    position: relative;
+    margin: 0 auto;
+    padding: 2rem;    
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+
+    a {
+        display: flex;
+        flex-direction: column;
+      }
+
+    .next{
+        position: absolute;
+        right: 0;
+        span{
+            text-align: right;
+            color: var(--highlight);
+            font-weight: 600;
+        }
+    }
+
+    .prev{
+        position: absolute;
+        left: 0;
+
+        span{
+            color: var(--highlight);
+            font-weight: 600;
+        }
+    }
+}
+
+.editDate{
+    color: var(--body);
+    font-style: italic;
 }
