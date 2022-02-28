@@ -7,22 +7,30 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 🧪 Telas
 
-Home. Nessa imagem é possível ver o conceito de paginação, onde temos uma opção "carregar mais posts" que permanecerá habilitada até que não existam mais posts a serem exibidos.
+Home. Na primeira imagem é possível ver o conceito de paginação, onde temos uma opção "carregar mais posts" que permanecerá habilitada até que não existam mais posts a serem exibidos. Na segunda imagem temos um exemplo de exibição no modo preview desta mesma página.
 
 <h1 align="center">
     <img alt="spacetraveling" src="./src/assets/home.png" />
 </h1>
-Lista com todos os posts cadastrados no prismic. Nessa tela é possível ver que o botão "carregar mais posts" não é mais exibido.
+<h1 align="center">
+    <img alt="spacetraveling" src="./src/assets/home_preview.png" />
+</h1>
+Lista com todos os posts cadastrados no prismic. Na primeira imagem é possível ver que o botão "carregar mais posts" não é mais exibido.
 <br>
 <h1 align="center">
     <img alt="spacetraveling" src="./src/assets/home_all.png" />
 </h1>
-Página com as informações detalhadas sobre o post selecionado na tela anterior:
+Página com as informações detalhadas sobre o post selecionado na tela anterior. Na primeira imagem, existe a primeira versão onde estão as informações carregadas do prismic. Na segunda e terceira, vemos a implementação dos comentários e a nova funcionalidade de ir para o próximo ou para o post anterior. Além disso, essa página também possui o recurso de preview.
 <br>
 <h1 align="center">
     <img alt="spacetraveling" src="./src/assets/post.png" />
 </h1>
-
+<h1 align="center">
+    <img alt="spacetraveling" src="./src/assets/post_preview.png" />
+</h1>
+<h1 align="center">
+    <img alt="spacetraveling" src="./src/assets/post_preview_2.png" />
+</h1>
 Nessa aplicação existem testes e podemos ver que todos eles passaram, garantindo assim a integridade do que seria esperado na execução do projeto:
 <br>
 <h1 align="center">
